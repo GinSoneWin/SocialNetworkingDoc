@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<http-request>
+	<http-url>imagefileurl</http-url>
+	<http-header>
+		<signature mode="encrypted in pbkdf2" type="string">pbkdf2{(timestamp+userid+token),headerSalt}
+		</signature>
+	</http-header>
+	<http-content>
+		<timestamp type="string" mode="transparent">time</timestamp>
+		<secretData type="json string" mode="encrypted in aes">
+			<userid type="String" mode="transparent" />
+			<token type="String" mode="transparent" />
+			<headerSalt type="String" mode="transparent" />
+		</secretData>
+	</http-content>
+</http-request>
