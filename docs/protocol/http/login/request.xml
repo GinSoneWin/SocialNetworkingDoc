@@ -12,6 +12,6 @@
 			<passwd type="String" mode="transparent" />
 			<headerSalt type="String" mode="transparent" />
 		</secretData>
-		<key type="string" mode="encrypted in rsa"/>
+		<key type="string" mode="encrypted in rsa" />
 	</http-content>
 </http-request>
