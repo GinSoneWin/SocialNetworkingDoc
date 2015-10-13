@@ -22,7 +22,7 @@
 				<university type="string" mode="transparet" />
 				<place type="string" mode="transparet" />
 				<introduction type="string" mode="transparet" />
-				<hobby type="json array obj" mode="transparet">
+				<hobby type="string" mode="transparet">
 					hobby string array
 				</hobby>
 			</selfinfo>
