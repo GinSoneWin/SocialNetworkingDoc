@@ -11,7 +11,7 @@
 				<case value="-1" info="fail: info wrong" />
 			</result>
 			<socialinfo type="json string" mode="transparent">
-				<selfinfo type="json string" mode="transparent">
+				<selfinfo type="json obj" mode="transparent">
 					<userid type="string" mode="transparent">
 						<case value="userid generated from server" info="get userid if rigist success" />
 					</userid>
@@ -45,7 +45,7 @@
 					<introduction type="string" mode="transparent">
 						<case value="user's self introduction" info="if rigist success" />
 					</introduction>
-					<hobby type="json array string" mode="transparent">
+					<hobby type="json string" mode="transparent">
 						<case value="user's hobby" info="if rigist success" />
 					</hobby>
 				</selfinfo>
