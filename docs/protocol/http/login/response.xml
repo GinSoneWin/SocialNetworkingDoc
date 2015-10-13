@@ -10,7 +10,7 @@
 				<case value="0" info="success" />
 				<case value="-1" info="fail: info wrong" />
 			</result>
-			<socialinfo type="json string" mode="transparent">
+			<socialinfo type="json obj" mode="transparent">
 				<selfinfo type="json obj" mode="transparent">
 					<userid type="string" mode="transparent">
 						<case value="userid generated from server" info="get userid if rigist success" />
