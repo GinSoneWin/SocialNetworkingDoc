@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<http-request>
+	<http-url>
+		webappcontext/user/social/personal/info/updateInfoPro
+	</http-url>
+	<http-headers>
+		<jsonSignature mode="encrypted in pbkdf2" type="string">pbkdf2{(timestamp+userid+token+requestJson),headerSalt}
+		</jsonSignature>
+	</http-headers>
+	<http-content>
+		<timestamp type="string" mode="transparent" />
+		<secretData type="json string" mode="encrypted in aes">
+			<token type="string" mode="transparent" />
+			<selfinfo type="json obj" mode="transparent">
+				<nickname type="string" mode="transparet" />
+				<sex type="string" mode="transparet" />
+				<birthday type="string" mode="transparet" />
+				<images type="json array obj">
+					fileid string array
+				</images>
+				<major type="string" mode="transparet" />
+				<university type="string" mode="transparet" />
+				<place type="string" mode="transparet" />
+				<introduction type="string" mode="transparet" />
+				<hobby type="json array obj" mode="transparet">
+					hobby string array
+				</hobby>
+			</selfinfo>
+			<headerSalt type="string" mode="transparent"/>
+		</secretData>
+		<userid type="string" mode="transparent" />
+
+	</http-content>
+
+</http-request>
