@@ -9,7 +9,7 @@
 	</http-headers>
 	<http-content>
 		<timestamp type="string" mode="transparent" />
-		<secretData type="json obj" mode="encrypted in aes">
+		<secretData type="json string" mode="encrypted in aes">
 			<token type="string" mode="transparent" />
 			<selfinfo type="json obj" mode="transparent">
 				<nickname type="string" mode="transparet" />
