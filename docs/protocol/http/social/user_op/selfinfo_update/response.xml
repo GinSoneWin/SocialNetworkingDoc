@@ -1,0 +1,23 @@
+<http-response>
+	<http-header>
+		<jsonSignature type="string" mode="encrypted in pbkdf2">Pbkdf2{(timestamp+userid+token+responseJsonString),headerSalt}
+		</jsonSignature>
+	</http-header>
+	<http-content type="json string" mode="transparent">
+		<timestamp type="string" mode="transparent" />
+		<secretData type="json string" mode="encrypted in aes">
+			<result type="string" mode="transparent">
+				<case value="0" info="success" />
+				<case value="-1" info="fail: token wrong,need to login again" />
+				<case value="-2" info="fail: update fail"/>
+			</result> 
+			<headerSalt mode="transparent" type="String" />
+		</secretData>
+	</http-content>
+</http-response>
+
+
+
+
+
+
