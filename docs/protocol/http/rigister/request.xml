@@ -8,7 +8,7 @@
 			pbkdf2{(timestamp+phone+passwd+httpcontentJsonString),headerSalt}
 		</jsonSignature>
 		<fileName mode="encrypted in pbkdf2 type=" string ">
-			pbkdf2{(timestamp+phone+passwd+fileBytes),headerSalt}
+			SHA{(timestamp+phone+passwd , fileBytes),headerSalt}
 		</fileName>
 	</http-headers>
 	<http-content type="json string" mode="transparent">
