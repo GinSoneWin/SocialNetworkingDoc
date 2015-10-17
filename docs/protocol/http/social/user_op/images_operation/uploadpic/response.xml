@@ -1,0 +1,28 @@
+<http-response>
+	<http-header>
+		<signature type="string" mode="encrypted in pbkdf2">Pbkdf2{(timestamp+phone+passwd+responseJsonString),headerSalt}
+		</signature>
+	</http-header>
+	<http-content type="json string" mode="transparent">
+		<timestamp type="string" mode="transparent" />
+		<secretData type="json string" mode="encrypted in aes">
+			<result type="string" mode="transparent">
+				<case value="0" info="success" />
+				<case value="-1" info="token wrong" />
+			</result>
+			<headerSalt mode="transparent" type="String" />
+			<!-- start following info exist when operation success -->
+			<imageInfo mode="transparent" type="json obj">
+				<url mode="transparent" type="url string" />
+				<id mode="transparent" type="string" />
+			</imageInfo>
+			<!-- end -->
+		</secretData>
+	</http-content>
+</http-response>
+
+
+
+
+
+

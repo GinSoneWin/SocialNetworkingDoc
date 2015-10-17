@@ -10,7 +10,7 @@
 				<case value="0" info="success" />
 				<case value="-1" info="fail: token wrong,need to login again" />
 				<case value="-2" info="fail: update fail"/>
-			</result> 
+			</result>
 			<headerSalt mode="transparent" type="String" />
 		</secretData>
 	</http-content>

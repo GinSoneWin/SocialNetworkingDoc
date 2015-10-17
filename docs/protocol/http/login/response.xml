@@ -28,10 +28,10 @@
 						<case value="token generated from server" info="get token if rigist success" />
 					</token>
 					<images mode="transparent" type="json array object">
-						<jsonobject type="element in array">
+						<eachelement type="element in array" mark="eachelement is not a key">
 							<url mode="transparent" type="url string" />
 							<id mode="transparent" type="string" />
-						</jsonobject>
+						</eachelement>
 					</images>
 					<major type="string" mode="transparent">
 						<case value="user's school major" info="if rigist success" />

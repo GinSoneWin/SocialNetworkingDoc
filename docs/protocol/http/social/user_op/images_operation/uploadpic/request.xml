@@ -1,0 +1,25 @@
+
+<http-request>
+	<http-url>
+		webappcontext/
+	</http-url>
+	<http-headers>
+		<jsonSignature mode="encrypted in pbkdf2" type="string">
+			pbkdf2{(timestamp+userid+token+httpcontentJsonString),headerSalt}
+		</jsonSignature>
+		<fileName mode="encrypted in pbkdf2 type=" string ">
+			pbkdf2{(timestamp+userid+token+fileBytes),headerSalt}
+		</fileName>
+	</http-headers>
+	<http-content type="json string" mode="transparent">
+		<requestJson type="json string" mode="transparent">
+			<timestamp type="string" mode="transparent">time</timestamp>
+			<secretData type="json string" mode="encrypted in aes">
+				<token type="string" mode="transparent"></token>
+				<headerSalt type="String" mode="transparent" />
+			</secretData>
+			<key type="string" mode="encrypted in rsa">user aes secret key</key>
+		</requestJson>
+		<fileName type="byte[]" mode="encrypted in aes" />
+	</http-content>
+</http-request>
