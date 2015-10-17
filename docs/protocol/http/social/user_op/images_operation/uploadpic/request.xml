@@ -18,6 +18,7 @@
 				<token type="string" mode="transparent"></token>
 				<headerSalt type="String" mode="transparent" />
 			</secretData>
+			<userid type="String" mode="transparent"/>
 		</requestJson>
 		<fileName type="byte[]" mode="encrypted in aes" />
 	</http-content>
