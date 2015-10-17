@@ -7,7 +7,7 @@
 		<jsonSignature mode="encrypted in pbkdf2" type="string">
 			pbkdf2{(timestamp+userid+token+httpcontentJsonString),headerSalt}
 		</jsonSignature>
-		<fileName mode="encrypted in pbkdf2 type=" string ">
+		<fileName mode="encrypted in pbkdf2 "  type=" string ">
 			pbkdf2{(timestamp+userid+token+fileBytes),headerSalt}
 		</fileName>
 	</http-headers>
@@ -18,7 +18,6 @@
 				<token type="string" mode="transparent"></token>
 				<headerSalt type="String" mode="transparent" />
 			</secretData>
-			<key type="string" mode="encrypted in rsa">user aes secret key</key>
 		</requestJson>
 		<fileName type="byte[]" mode="encrypted in aes" />
 	</http-content>
