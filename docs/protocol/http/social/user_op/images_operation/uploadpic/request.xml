@@ -1,14 +1,14 @@
 
 <http-request>
 	<http-url>
-		webappcontext/
+		webappcontext/user/social/personal/fileop/uploadPro
 	</http-url>
 	<http-headers>
 		<jsonSignature mode="encrypted in pbkdf2" type="string">
 			pbkdf2{(timestamp+userid+token+httpcontentJsonString),headerSalt}
 		</jsonSignature>
-		<fileName mode="encrypted in pbkdf2 "  type=" string ">
-			pbkdf2{(timestamp+userid+token+fileBytes),headerSalt}
+		<fileName mode="encrypted in sha "  type=" string ">
+			SHA{(timestamp+userid+token) , fileBytes),headerSalt}
 		</fileName>
 	</http-headers>
 	<http-content type="json string" mode="transparent">
