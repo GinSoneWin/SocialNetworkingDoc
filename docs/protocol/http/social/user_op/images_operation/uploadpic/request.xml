@@ -16,6 +16,9 @@
 			<timestamp type="string" mode="transparent">time</timestamp>
 			<secretData type="json string" mode="encrypted in aes">
 				<token type="string" mode="transparent"></token>
+				<image type="json obj" mode="transparent">
+					<order tyep="string" mode="transparent"/>
+				</image>
 				<headerSalt type="String" mode="transparent" />
 			</secretData>
 			<userid type="String" mode="transparent"/>
