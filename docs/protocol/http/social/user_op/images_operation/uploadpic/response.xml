@@ -1,7 +1,7 @@
 <http-response>
 	<http-header>
-		<signature type="string" mode="encrypted in pbkdf2">Pbkdf2{(timestamp+phone+passwd+responseJsonString),headerSalt}
-		</signature>
+		<jsonSignature type="string" mode="encrypted in pbkdf2">Pbkdf2{(timestamp+userid+token+responseJsonString),headerSalt}
+		</jsonSignature>
 	</http-header>
 	<http-content type="json string" mode="transparent">
 		<timestamp type="string" mode="transparent" />
@@ -9,6 +9,7 @@
 			<result type="string" mode="transparent">
 				<case value="0" info="success" />
 				<case value="-1" info="token wrong" />
+				<case value="-2" info="upload fail"/>
 			</result>
 			<headerSalt mode="transparent" type="String" />
 			<!-- start following info exist when operation success -->
