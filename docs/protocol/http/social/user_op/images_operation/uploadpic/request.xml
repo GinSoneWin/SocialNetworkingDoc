@@ -5,7 +5,7 @@
 	</http-url>
 	<http-headers>
 		<jsonSignature mode="encrypted in pbkdf2" type="string">
-			pbkdf2{(timestamp+userid+token+httpcontentJsonString),headerSalt}
+			pbkdf2{(timestamp+userid+token+requestJsonString),headerSalt}
 		</jsonSignature>
 		<fileName mode="encrypted in sha "  type=" string ">
 			SHA{(timestamp+userid+token) , fileBytes),headerSalt}
