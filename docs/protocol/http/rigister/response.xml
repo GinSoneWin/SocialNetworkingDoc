@@ -1,8 +1,8 @@
 <http-response>
 	<http-header>
-		<signature mode="encrypted in pbkdf2" type="String">pbkdf2{(timestamp+phone+passwd(same
+		<jsonSignature mode="encrypted in pbkdf2" type="String">pbkdf2{(timestamp+phone+passwd(same
 			as client)+httpcontentJsonString),headerSalt}
-		</signature>
+		</jsonSignature>
 	</http-header>
 	<http-content mode="transparent" type="json String">
 		<timestamp mode="transparent" type="string">String.valueOf(System.currentTimeMillis())
