@@ -1,7 +1,7 @@
 <http-response>
 	<http-header>
-		<signature type="string" mode="encrypted in pbkdf2">Pbkdf2{(timestamp+phone+passwd+responseJsonString),headerSalt}
-		</signature>
+		<jsonSignature type="string" mode="encrypted in pbkdf2">Pbkdf2{(timestamp+phone+passwd+responseJsonString),headerSalt}
+		</jsonSignature>
 	</http-header>
 	<http-content type="json string" mode="transparent">
 		<timestamp type="string" mode="transparent" />
