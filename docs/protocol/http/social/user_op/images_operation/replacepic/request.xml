@@ -5,7 +5,7 @@
 	</http-url>
 	<http-headers>
 		<jsonSignature mode="encrypted in pbkdf2" type="string">
-			pbkdf2{(timestamp+userid+token+httpcontentJsonString),headerSalt}
+			pbkdf2{(timestamp+userid+token+requestJsonString),headerSalt}
 		</jsonSignature>
 		<fileName mode="encrypted in sha "  type=" string ">
 			SHA{(timestamp+userid+token) , fileBytes),headerSalt}
@@ -16,9 +16,10 @@
 			<timestamp type="string" mode="transparent">time</timestamp>
 			<secretData type="json string" mode="encrypted in aes">
 				<token type="string" mode="transparent"></token>
-				<image type="json obj" mode="transparent">
+				<oldImageInfo type="json obj" mode="transparent">
+					<id type="string" mode="transparent"/>
 					<order tyep="string" mode="transparent"/>
-				</image>
+				</oldImageInfo>
 				<headerSalt type="String" mode="transparent" />
 			</secretData>
 			<userid type="String" mode="transparent"/>
