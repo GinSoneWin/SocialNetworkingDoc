@@ -18,7 +18,6 @@
 				<token type="string" mode="transparent"></token>
 				<oldImageInfo type="json obj" mode="transparent">
 					<id type="string" mode="transparent"/>
-					<order tyep="string" mode="transparent"/>
 				</oldImageInfo>
 				<headerSalt type="String" mode="transparent" />
 			</secretData>

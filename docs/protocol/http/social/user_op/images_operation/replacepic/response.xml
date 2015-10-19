@@ -1,1 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<http-response>
+	<http-header>
+		<jsonSignature type="string" mode="encrypted in pbkdf2">Pbkdf2{(timestamp+userid+token+responseJsonString),headerSalt}
+		</jsonSignature>
+	</http-header>
+	<http-content type="json string" mode="transparent">
+		<timestamp type="string" mode="transparent" />
+		<secretData type="json string" mode="encrypted in aes">
+			<result type="string" mode="transparent">
+				<case value="0" info="success" />
+				<case value="-1" info="token wrong" />
+				<case value="-2" info="replace pic fail"/>
+			</result>
+			<headerSalt mode="transparent" type="String" />
+			<!-- start following info exist when operation success -->
+			<newImageInfo mode="transparent" type="json obj">
+				<url mode="transparent" type="url string" />
+				<id mode="transparent" type="string" />
+			</newImageInfo>
+			<!-- end -->
+		</secretData>
+	</http-content>
+</http-response>
+
+
+
+
+
+
