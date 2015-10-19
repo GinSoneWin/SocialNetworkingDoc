@@ -1,0 +1,24 @@
+
+<http-request>
+	<http-url>
+		webappcontext/user/social/personal/fileop/deletePicPro
+	</http-url>
+	<http-headers>
+		<jsonSignature mode="encrypted in pbkdf2" type="string">
+			pbkdf2{(timestamp+userid+token+requestJsonString),headerSalt}
+		</jsonSignature>
+	</http-headers>
+	<http-content type="json string" mode="transparent">
+		<requestJson type="json string" mode="transparent">
+			<timestamp type="string" mode="transparent">time</timestamp>
+			<secretData type="json string" mode="encrypted in aes">
+				<token type="string" mode="transparent"></token>
+				<oldImageInfo type="json obj" mode="transparent">
+					<id type="string" mode="transparent"/>
+				</oldImageInfo>
+				<headerSalt type="String" mode="transparent" />
+			</secretData>
+			<userid type="String" mode="transparent"/>
+		</requestJson>
+	</http-content>
+</http-request>
