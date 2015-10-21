@@ -1,7 +1,7 @@
 
 <http-request>
 	<http-url>
-		webappcontext/user/social/personal/fileop/deletePicPro
+		webappcontext/user/social/personal/info/deletePicPro
 	</http-url>
 	<http-headers>
 		<jsonSignature mode="encrypted in pbkdf2" type="string">
