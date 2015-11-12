@@ -1,0 +1,11 @@
+
+<socket_frame>
+<header>
+<signature type="string" length="not fixed"/>
+<msgTotalLength type="int" length="not fixed"/>
+<msgType type="byte" length="1 byte"/>
+</header>
+<body>
+	real msg	
+</body>
+</socket_frame>
