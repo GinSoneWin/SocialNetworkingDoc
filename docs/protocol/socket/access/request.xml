@@ -26,7 +26,7 @@
 				"jsonSignature"
 			</key>
 			<value type="byte[]" length="not fixed" info="you should convert the value object to byte array"> 
-				SHA{(framehead+timestamp+session+msgtype+servicetype+priority+msgbody),headersalt}
+				SHA{(framehead+timestamp+session+msgtype+servicetype+priority+msgbody+token),headersalt}
 			</value>
 		</attachment>
 	</attachments>
