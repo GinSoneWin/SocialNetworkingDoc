@@ -10,8 +10,8 @@
 	<sessionid type="long" length="8 bytes">
 		-1
 	</sessionid>
-	<msgType type="byte" length="1 byte" info="access request msg">
-		3
+	<msgType type="byte" length="1 byte" info="access in request msg">
+		0
 	</msgType>
 	<serviceType type="byte" length="1 byte">
 		-1
@@ -36,6 +36,7 @@
 		<timestamp type="string" mode="transparent" />
 		<secretData type="json string" mode="encrypted in aes">
 			<token type="string" mode="transparent"/>
+			<headerSalt type="string" mode="transparent"/>
 		</secretData>
 		<userid type="string" mode="transparent"/>
 	</msgJson>
