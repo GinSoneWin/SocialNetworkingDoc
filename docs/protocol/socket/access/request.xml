@@ -33,7 +33,6 @@
 </so_header>
 <so_body type="byte[]" length="not fixed" info="the socket message body,convert the jsonstring to byte[]" >
 	<msgJson type="jsonstring" mode="transparent">
-		<timestamp type="string" mode="transparent" />
 		<secretData type="json string" mode="encrypted in aes">
 			<token type="string" mode="transparent"/>
 			<headerSalt type="string" mode="transparent"/>
