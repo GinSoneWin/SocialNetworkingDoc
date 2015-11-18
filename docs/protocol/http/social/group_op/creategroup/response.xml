@@ -1,0 +1,29 @@
+<http-response>
+	<http-header>
+		<jsonSignature type="string" mode="encrypted in pbkdf2">Pbkdf2{(timestamp+userid+token+responseJsonString),headerSalt}
+		</jsonSignature>
+	</http-header>
+	<http-content type="json string" mode="transparent">
+		<timestamp type="string" mode="transparent" />
+		<secretData type="json string" mode="encrypted in aes">
+			<result type="string" mode="transparent">
+				<cases>
+					<case value="0" info="success" />
+					<case value="-1" info="fail: token wrong,need to login again" />
+					<case value="-2" info="fail: create tempgroup fail" />
+				</cases>
+			</result>
+			<headerSalt mode="transparent" type="String" />
+			<!-- the info below exist when the create_group operation success -->
+			<groupUrl type="string" mode="transparent" info="url contains groupid info">
+				http:xxx/groupid
+			</groupUrl>
+		</secretData>
+	</http-content>
+</http-response>
+
+
+
+
+
+
