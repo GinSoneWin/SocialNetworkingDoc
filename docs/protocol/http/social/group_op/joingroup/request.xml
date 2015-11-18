@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <http-request>
 	<http-url>
-		webappcontext/user/social/personal/info/createGroupServlet
+		the url you scan
 	</http-url>
 	<http-headers>
 		<jsonSignature mode="encrypted in pbkdf2" type="string">pbkdf2{(timestamp+userid+token+requestJson),headerSalt}
