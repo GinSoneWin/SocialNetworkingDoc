@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <http-request>
 	<http-url>
-		webappcontext/user/social/group/creategroup
+		webappcontext/user/social/personal/info/createGroupServlet
 	</http-url>
 	<http-headers>
-		<signature mode="encrypted in pbkdf2" type="string">pbkdf2{(timestamp+userid+token+)}</signature>
+		<jsonSignature mode="encrypted in pbkdf2" type="string">pbkdf2{(timestamp+userid+token+requestJson),headerSalt}
+		</jsonSignature>
 	</http-headers>
-	
+	<http-content>
+		<timestamp type="string" mode="transparent" />
+		<secretData type="json string" mode="encrypted in aes">
+			<token type="string" mode="transparent" />
+			<groupInfo type="json obj" mode="transparent">
+				<groupName type="string" mode="transparent"/>
+				<groupIntro type="string" mode="transparent"/>
+			</groupInfo>
+			<headerSalt type="string" mode="transparent"/>
+		</secretData>
+		<userid type="string" mode="transparent" />
+	</http-content>
 </http-request>
