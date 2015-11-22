@@ -40,6 +40,5 @@
 			</result>
 			<headerSalt type="string" mode="transparent"/>
 		</secretData>
-		<userid type="string" mode="transparent"/>
 	</msgJson>
 </so_body>
