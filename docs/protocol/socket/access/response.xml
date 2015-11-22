@@ -21,7 +21,6 @@
 	</priority>
 	<attachments info="a header may have more than one attachment">
 		<attachment info="each attachment has a key and a value">
-		
 			<key type="byte[]" length="not fixed" info="you should convert the key string to key byte array">
 				"jsonSignature"
 			</key>
@@ -29,16 +28,25 @@
 				SHA{(framehead+timestamp+session+msgtype+servicetype+priority+msgbody+token),headersalt}
 			</value>
 		</attachment>
+		<attachment info="each attachment has a key and a value">
+			<key type="byte[]" length="not fixed" info="you should convert the key string to key byte array">
+				"sigInfo"
+			</key>
+			<value type="byte[]" length="not fixed" info="you should convert the value to byte array"> 
+				headerSalt(encrypted in aes)
+			</value>
+		</attachment>
 	</attachments>
 </so_header>
-<so_body type="byte[]" length="not fixed" info="the socket message body,convert the jsonstring to byte[]" >
+<so_body type="byte[]" length="not fixed"
+	info="the socket message body,convert the jsonstring to byte[]">
 	<msgJson type="jsonstring" mode="transparent">
-		<secretData type="json string" mode="encrypted in aes">
-			<result type="string" mode="transparent">
-				<case value="0" info="access in success"/>
-				<case value="-1" info="access in fail"/>
-			</result>
-			<headerSalt type="string" mode="transparent"/>
-		</secretData>
+		<result type="string" mode="transparent">
+			<!-- 
+			<cases> 
+				<case value="0" info="access in success"> 
+			</cases> 
+			-->
+		</result>
 	</msgJson>
 </so_body>

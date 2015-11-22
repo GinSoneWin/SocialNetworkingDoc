@@ -50,11 +50,4 @@
 		</attachment>
 	</attachments>
 </so_header>
-<so_body type="byte[]" length="not fixed"
-	info="the socket message body,convert the jsonstring to byte[]">
-	<msgJson type="jsonstring" mode="transparent">
-		<result type="string" mode="transparent">
-			<!-- <cases> <case value="0" info="access in success"> </cases> -->
-		</result>
-	</msgJson>
-</so_body>
+
