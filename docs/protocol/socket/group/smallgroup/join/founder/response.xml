@@ -1,0 +1,49 @@
+<user_node>
+	if a parameter's length is not fixed,you should write the length of the parameter before you write the value of the parameter.
+</user_node>
+<so_header info="the socket message header">
+	<framehead type="int" length="4 bytes">
+		0xabef0101
+	</framehead>
+	<length type="int" length="4 bytes" />
+	<timestamp type="long " length="8 bytes"/>
+	<sessionid type="long" length="8 bytes">
+		-1
+	</sessionid>
+	<msgType type="byte" length="1 byte" info="small group create response msg">
+		3
+	</msgType>
+	<serviceType type="byte" length="1 byte">
+		0
+	</serviceType>
+	<subServiceType type="byte" length="1 byte">
+		2
+	</subServiceType>
+	<priority type="byte" length="1 byte">
+		0
+	</priority>
+	<attachments info="a header may have more than one attachment">
+		<attachment info="each attachment has a key and a value">
+			<key type="byte[]" length="not fixed" info="you should convert the key string to key byte array">
+				"jsonSignature"
+			</key>
+			<value type="byte[]" length="not fixed" info="you should convert the value object to byte array"> 
+				SHA{(framehead+timestamp+session+msgtype+servicetype+subservicetype+priority+msgbody+token),headersalt}
+			</value>
+		</attachment>
+		<attachment info="each attachment has a key and a value">
+			<key type="byte[]" length="not fixed" info="you should convert the key string to key byte array">
+				"sigInfo"
+			</key>
+			<value type="byte[]" length="not fixed" info="you should convert the value to byte array"> 
+				headerSalt(encrypted in aes)
+			</value>
+		</attachment>
+	</attachments>
+</so_header>
+<so_body type="byte[]" length="not fixed" mode="encrypted in aes">
+	<msgJson type="jsonstring" mode="transparent">
+		<joinerId type="string" mode="transparent"/>
+		<joinerNick type="string" mode="transparent"/>
+	</msgJson>
+</so_body>
