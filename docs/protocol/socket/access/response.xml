@@ -1,12 +1,13 @@
 <user_node>
-	if a parameter's length is not fixed,you should write the length of the parameter before you write the value of the parameter.
+	if a parameter's length is not fixed,you should write the
+	length of the parameter before you write the value of the parameter.
 </user_node>
 <so_header info="the socket message header">
 	<framehead type="int" length="4 bytes">
 		0xabef0101
 	</framehead>
 	<length type="int" length="4 bytes" />
-	<timestamp type="long " length="8 bytes"/>
+	<timestamp type="long " length="8 bytes" />
 	<sessionid type="long" length="8 bytes">
 		-1
 	</sessionid>
@@ -24,32 +25,32 @@
 	</priority>
 	<attachments info="a header may have more than one attachment">
 		<attachment info="each attachment has a key and a value">
-			<key type="byte[]" length="not fixed" info="you should convert the key string to key byte array">
-				"jsonSignature"
+			<key type="byte[]" length="not fixed"
+				info="you should convert the key string to key byte array">
+				"msgSignature"
 			</key>
-			<value type="byte[]" length="not fixed" info="you should convert the value object to byte array"> 
-				SHA{(framehead+timestamp+session+msgtype+servicetype+priority+msgbody+token),headersalt}
+			<value type="byte[]" length="not fixed"
+				info="you should convert the value object to byte array">
+				SHA{(framehead+timestamp+session+msgtype+servicetype+subservicetype+priority+msgbody+token),headersalt}
 			</value>
 		</attachment>
 		<attachment info="each attachment has a key and a value">
-			<key type="byte[]" length="not fixed" info="you should convert the key string to key byte array">
-				"sigInfo"
+			<key type="byte[]" length="not fixed"
+				info="you should convert the key string to key byte array">
+				"authInfo"
 			</key>
-			<value type="byte[]" length="not fixed" info="you should convert the value to byte array"> 
-				headerSalt(encrypted in aes)
-			</value>
+			<authInfo type="json string" mode="transparent">
+				<secretInfo type="json string" mode="encrypted in aes">
+					<headerSalt type="string" mode="transparent" />
+				</secretInfo>
+			</authInfo>
 		</attachment>
 	</attachments>
 </so_header>
-<so_body type="byte[]" length="not fixed"
-	info="the socket message body,convert the jsonstring to byte[]">
+<so_body type="byte[]" length="not fixed"">
 	<msgJson type="jsonstring" mode="transparent">
 		<result type="string" mode="transparent">
-			<!-- 
-			<cases> 
-				<case value="0" info="access in success"> 
-			</cases> 
-			-->
+			<!-- <cases> <case value="0" info="access in success"> </cases> -->
 		</result>
 	</msgJson>
 </so_body>
