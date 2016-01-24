@@ -17,6 +17,9 @@
 	<serviceType type="byte" length="1 byte">
 		-1
 	</serviceType>
+	<subServiceType type="byte" length="1 byte">
+		-1
+	</subServiceType>
 	<priority type="byte" length="1 byte">
 		0
 	</priority>
