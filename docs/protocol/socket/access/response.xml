@@ -47,7 +47,7 @@
 		</attachment>
 	</attachments>
 </so_header>
-<so_body type="byte[]" length="not fixed"">
+<so_body type="byte[]" length="not fixed" mode="encrypted in aes">
 	<msgJson type="jsonstring" mode="transparent">
 		<result type="string" mode="transparent">
 			<!-- <cases> <case value="0" info="access in success"> </cases> -->
