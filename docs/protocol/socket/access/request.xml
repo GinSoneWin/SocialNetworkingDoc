@@ -27,11 +27,11 @@
 		<attachment info="each attachment has a key and a value">
 			<key type="byte[]" length="not fixed"
 				info="you should convert the key string to key byte array">
-				"jsonSignature"
+				"msgSignature"
 			</key>
 			<value type="byte[]" length="not fixed"
 				info="you should convert the value object to byte array">
-				SHA{(framehead+timestamp+session+msgtype+servicetype+priority+msgbody+token),headersalt}
+				SHA{(framehead+timestamp+session+msgtype+servicetype+subservicetype+priority+msgbody+token),headersalt}
 			</value>
 		</attachment>
 
