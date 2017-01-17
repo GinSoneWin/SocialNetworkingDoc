@@ -3,54 +3,36 @@
 	length of the parameter before you write the value of the parameter.
 </user_node>
 <so_header info="the socket message header">
-	<framehead type="int" length="4 bytes">
+	<framehead type="int32" length="4 bytes">
 		0xabef0101
 	</framehead>
-	<length type="int" length="4 bytes" />
-	<timestamp type="long " length="8 bytes" />
-	<sessionid type="long" length="8 bytes">
+	<length type="int32" length="4 bytes" />
+	<timestamp type="int64 " length="8 bytes" />
+	<sessionid type="int64" length="8 bytes">
 		-1
 	</sessionid>
-	<msgType type="byte" length="1 byte" info="access in request msg">
+	<msgType type="int32" length="4 byte" info="access in request msg">
 		0
 	</msgType>
-	<serviceType type="byte" length="1 byte">
+	<serviceType type="int32" length="4 byte">
 		-1
 	</serviceType>
-	<subServiceType type="byte" length="1 byte">
+	<subServiceType type="int32" length="4 byte">
 		-1
 	</subServiceType>
-	<priority type="byte" length="1 byte">
+	<priority type="int32" length="4 byte">
 		0
 	</priority>
-	<attachments info="a header may have more than one attachment">
-		<attachment info="each attachment has a key and a value">
-			<key type="byte[]" length="not fixed"
-				info="you should convert the key string to key byte array">
-				"msgSignature"
-			</key>
-			<value type="byte[]" length="not fixed"
-				info="you should convert the value object to byte array">
-				SHA{(framehead+timestamp+session+msgtype+servicetype+subservicetype+priority+msgbody+token),headersalt}
-			</value>
-		</attachment>
-
-		<attachment info="each attachment has a key and a value">
-			<key type="byte[]" length="not fixed"
-				info="you should convert the key string to key byte array">
-				"authInfo"
-			</key>
-			<value type="byte[]" length="not fixed"
-				info="you should convert the value to byte array">
-				<authInfo type="json string" mode="transparent">
-					<userid type="string" mode="transparent" />
-					<secretInfo type="json string" mode="encrypted in aes">
-						<token type="string" mode="transparent" />
-						<headerSalt type="string" mode="transparent" />
-					</secretInfo>
-				</authInfo>
-			</value>
-		</attachment>
-	</attachments>
+	
+	
+	<attachment info="each attachment has a key and a value">
+		<key>"userid"</key>
+		<value/>
+	</attachment>
+	
+	<attachment info="each attachment has a key and a value">
+		<key mode="encrypted in aes">"token"</key>
+		<value/>
+	</attachment>
 </so_header>
 
