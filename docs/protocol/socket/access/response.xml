@@ -3,54 +3,28 @@
 	length of the parameter before you write the value of the parameter.
 </user_node>
 <so_header info="the socket message header">
-	<framehead type="int" length="4 bytes">
+	<framehead type="int32" length="4 bytes">
 		0xabef0101
 	</framehead>
-	<length type="int" length="4 bytes" />
-	<timestamp type="long " length="8 bytes" />
-	<sessionid type="long" length="8 bytes">
+	<length type="int32" length="4 bytes" />
+	<timestamp type="int64 " length="8 bytes" />
+	<sessionid type="int64" length="8 bytes">
 		-1
 	</sessionid>
-	<msgType type="byte" length="1 byte" info="access in response msg">
+	<msgType type="int32" length="4 byte" info="access in response msg">
 		1
 	</msgType>
-	<serviceType type="byte" length="1 byte">
+	<serviceType type="int32" length="4 byte">
 		-1
 	</serviceType>
-	<subServiceType type="byte" length="1 byte">
+	<subServiceType type="int32" length="4 byte">
 		-1
 	</subServiceType>
-	<priority type="byte" length="1 byte">
+	<priority type="int32" length="4 byte">
 		0
 	</priority>
-	<attachments info="a header may have more than one attachment">
-		<attachment info="each attachment has a key and a value">
-			<key type="byte[]" length="not fixed"
-				info="you should convert the key string to key byte array">
-				"msgSignature"
-			</key>
-			<value type="byte[]" length="not fixed"
-				info="you should convert the value object to byte array">
-				SHA{(framehead+timestamp+session+msgtype+servicetype+subservicetype+priority+msgbody+token),headersalt}
-			</value>
-		</attachment>
-		<attachment info="each attachment has a key and a value">
-			<key type="byte[]" length="not fixed"
-				info="you should convert the key string to key byte array">
-				"authInfo"
-			</key>
-			<authInfo type="json string" mode="transparent">
-				<secretInfo type="json string" mode="encrypted in aes">
-					<headerSalt type="string" mode="transparent" />
-				</secretInfo>
-			</authInfo>
-		</attachment>
-	</attachments>
 </so_header>
+
 <so_body type="byte[]" length="not fixed" mode="encrypted in aes">
-	<msgJson type="jsonstring" mode="transparent">
-		<result type="string" mode="transparent">
-			<!-- <cases> <case value="0" info="access in success"> </cases> -->
-		</result>
-	</msgJson>
+	{"result" : "0"}<!-- <cases> <case value="0" info="access in success"> </cases> -->	
 </so_body>
